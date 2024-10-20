@@ -35,6 +35,7 @@ export default function Todos() {
   return (
     <TodosContext.Provider value={{ todos, fetchTodos }}>
       <Stack spacing={5}>
+        {console.log(todos)}
         {todos?.map((todo) => (
           <b>{todo.item}</b>
         ))}
