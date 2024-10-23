@@ -1,2 +1,4 @@
 /backend/venv
 /frontend/node_modules
+.DS_Store
+backend/app/__pycache__/api.cpython-311.pyc
