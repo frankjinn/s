@@ -4,15 +4,16 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import Todos from "./components/Todos"; // new
 import Dashboard from "./components/Dashboard"; // new
-import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <ChakraProvider>
-      <BrowserRouter>
-        {/* <Route exact path="/todo" component={Todos} />
-        <Route path="/dashboard" component={Dashboard} /> */}
-      </BrowserRouter>
+      {/* <Todos></Todos> */}
+      <Routes>
+        <Route path="/todos" element={<Todos />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </ChakraProvider>
   );
 }
