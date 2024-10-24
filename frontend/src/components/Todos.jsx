@@ -22,6 +22,27 @@ const TodosContext = React.createContext({
   fetchTodos: () => {},
 });
 
+function AddTodo() {
+  const [item, setItem] = React.useState("");
+  const { todos, fetchTodos } = React.useContext(TodosContext);
+  const handleInput = (event) => {
+    setItem(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    const newTodo = {
+      id: todos.length + 1,
+      item: item,
+    };
+
+    fetch("http://localhost:8000/todo", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newTodo),
+    }).then(fetchTodos);
+  };
+}
+
 export default function Todos() {
   const [todos, setTodos] = useState([]);
   const fetchTodos = async () => {

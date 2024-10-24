@@ -1,0 +1,224 @@
+{
+  "CompanyName": "UnitedHealthcare",
+  "PolicyNumber": "2024-203113-92",
+  "Policy": {
+    "BenefitOverview": {
+      "CoinsuranceOutPercent": 0.7,
+      "CoinsurancePFPercent": 0.8,
+      "DeductibleOut": 350,
+      "DeductiblePF": 100,
+      "OutOfPocketMaxOutInsureds": 16000,
+      "OutOfPocketMaxOutInsuree": 8000,
+      "OutOfPocketMaxPFInsureds": 12700,
+      "OutOfPocketMaxPFInsuree": 6350,
+      "PolicyMaxBenefit": 0
+    },
+    "Categories": {
+      "Inpatient": {
+        "Anesthetist": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "AssistantSurgeon": {
+          "Note": "If two or more procedures are performed through the same incision or in immediate succession at the same operative session, the maximum amount paid will not exceed 50% of the second procedure and 50% of all subsequent procedures.",
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "HospitalMiscellaneousExpenses": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "IntensiveCare": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "Nurse": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "PhysicianVisits": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "PreadmissionTesting": {
+          "Note": "Payable within 7 working days prior to admission.",
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "RoomAndBoard": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "RoutineNewbornCare": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "Surgery": {
+          "Note": "If two or more procedures are performed through the same incision or in immediate succession at the same operative session, the maximum amount paid will not exceed 50% of the second procedure and 50% of all subsequent procedures.",
+          "Out": "AD",
+          "PF": "AD"
+        }
+      },
+
+      "Other": {
+        "AmbulanceServices": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "BariatricSurgery": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "ComplicationsofPregnancy": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "ConsultantPhysicianFees": {
+          "Out": "AD",
+          "PF": 25
+        },
+        "DentalTreatment": {
+          "Note": "Benefits paid on Injury to Sound, Natural Teeth only. $100 maximum per tooth $500 maximum per Policy Year.",
+          "Out": "PAD",
+          "OutPercent": 0.8,
+          "PF": "AD"
+        },
+        "DiabetesServices": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "DurableMedicalEquipment": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "ElectiveAbortion": {
+          "Note": "$1,500 maximum per Policy Year",
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "HighCostProcedure": {
+          "Out": "Copay",
+          "OutCopay": 150,
+          "PF": "Copay",
+          "PFCopay": 150
+        },
+        "Maternity": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "MentalIllnessTreatment": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "PreventiveCareServices": {
+          "Note": "No Deductible, Copays, or Coinsurance will be applied when the services are received from a Preferred Provider.",
+          "Out": "None",
+          "PF": "PAD",
+          "PFPercent": 1
+        },
+        "ReconstructiveBreastSurgeryFollowingMastectomy": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "RoutineEyeExam": {
+          "Note": "Covers Students age 19 and older only. Limited to one per Policy Year, up to a $100 maximum. The maximum does not apply when services are rendered at the SHC.",
+          "Out": "PAD",
+          "OutPercent": 1,
+          "PF": "PAD",
+          "PFPercent": 1
+        },
+        "SubstanceUseDisorderTreatment": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "Titers": {
+          "Note": "Benefits are limited to titers related to immunizations for the following: Polio Virus Immune status, Varicella-Zoster AB, IgG, Hepatitis B surf AB, MMR, Hep B, Hep A, Tdap, and Rubella",
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "TransplantationServices": {
+          "Out": "PS",
+          "PF": "PS"
+        },
+        "TuberculosisScreeningandTesting": {
+          "Note": "Benefits are limited to TB Screening and Testing not covered under the Preventive Care Services benefit.",
+          "Out": "AD",
+          "PF": "PAD",
+          "PFPercent": 1
+        },
+        "UrgentCareCenter": {
+          "Out": "50",
+          "PF": "50"
+        },
+        "VisionCareSupplies": {
+          "Note": "Covers Students age 19 and older only. There is a combined maximum of $100 each 24 consecutive months for Lenses and Frames, including Contact Lenses.",
+          "Out": "PAD",
+          "OutPercent": 1,
+          "PF": "PAD",
+          "PFPercent": 1
+        }
+      },
+      "Outpatient": {
+        "Anesthetist": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "AssistantSurgeon": {
+          "Note": "If two or more procedures are performed through the same incision or in immediate succession at the same operative session, the maximum amount paid will not exceed 50% of the second procedure and 50% of all subsequent procedures.",
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "Chemotherapy": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "DaySurgeryMisc": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "DiagnosticX-rayServices": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "Injections": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "LaboratoryProcedures": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "MedicalEmergencyExpenses": {
+          "Note": "The Copay will be waived if admitted to the Hospital. Treatment must be rendered within 72 hours from time of Injury or first onset of Sickness.",
+          "Out": "200",
+          "PF": "200"
+        },
+        "PhysicianVisits": {
+          "Out": "AD",
+          "PF": "CP",
+          "PFCP": 25
+        },
+        "Physiotherapy": {
+          "OutCP": 30,
+          "PFCP": 30,
+          "Note": "Review of Medical Necessity will be performed after 12 visits per Injury or Sickness.",
+          "Out": "CP",
+          "PF": "CP"
+        },
+        "RadiationTherapy": {
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "Surgery": {
+          "Note": "If two or more procedures are performed through the same incision or in immediate succession at the same operative session, the maximum amount paid will not exceed 50% of the second procedure and 50% of all subsequent procedures.",
+          "Out": "AD",
+          "PF": "AD"
+        },
+        "TestsandProcedures": {
+          "Out": "AD",
+          "PF": "AD"
+        }
+      }
+    }
+  }
+}
