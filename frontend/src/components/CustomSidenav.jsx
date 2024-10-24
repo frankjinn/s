@@ -30,10 +30,13 @@ export default function CustomSidenav() {
             <Nav.Item eventKey="1" icon={<DashboardIcon />}>
               Dashboard
             </Nav.Item>
-            <Nav.Item eventKey="2" icon={<GroupIcon />}>
-              User Group
+            <Nav.Item eventKey="2" icon={<MagicIcon />}>
+              Schedule
             </Nav.Item>
-            <Nav.Menu eventKey="3" title="Advanced" icon={<MagicIcon />}>
+            <Nav.Item eventKey="2" icon={<GroupIcon />}>
+              Patients
+            </Nav.Item>
+            {/* <Nav.Menu eventKey="3" title="Advanced" icon={<MagicIcon />}>
               <Nav.Item eventKey="3-1">Geo</Nav.Item>
               <Nav.Item eventKey="3-2">Devices</Nav.Item>
               <Nav.Item eventKey="3-3">Loyalty</Nav.Item>
@@ -47,7 +50,7 @@ export default function CustomSidenav() {
                 <Nav.Item eventKey="4-5-1">Action Name</Nav.Item>
                 <Nav.Item eventKey="4-5-2">Action Params</Nav.Item>
               </Nav.Menu>
-            </Nav.Menu>
+            </Nav.Menu> */}
           </Nav>
         </Sidenav.Body>
       </Sidenav>
