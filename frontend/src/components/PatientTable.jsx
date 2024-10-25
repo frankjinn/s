@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Table,
@@ -17,12 +17,15 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  Input,
   useDisclosure,
 } from "@chakra-ui/react";
 import axios from "axios";
 
 const PatientTable = () => {
   const [patients, setPatients] = useState([]);
+  const [filteredPatients, setFilteredPatients] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedPatient, setSelectedPatient] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -32,6 +35,7 @@ const PatientTable = () => {
         const response = await axios.get("/exampleUser.json");
         const data = response.data;
         setPatients(data);
+        setFilteredPatients(data);
       } catch (error) {
         console.error("Error fetching patient data:", error);
       }
@@ -39,6 +43,17 @@ const PatientTable = () => {
 
     fetchData();
   }, []);
+
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+    const filtered = patients.filter((patient) =>
+      Object.values(patient).some((value) =>
+        String(value).toLowerCase().includes(query)
+      )
+    );
+    setFilteredPatients(filtered);
+  };
 
   const handleRowClick = (patient) => {
     setSelectedPatient(patient);
@@ -50,6 +65,13 @@ const PatientTable = () => {
       <Heading as="h1" size="xl" textAlign="center">
         Patient Table
       </Heading>
+      <Input
+        placeholder="Search..."
+        value={searchQuery}
+        onChange={handleSearch}
+        maxW="80%"
+        mb={4}
+      />
       <Box 
         maxW="80%" 
         overflowY="auto" 
@@ -71,7 +93,7 @@ const PatientTable = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {patients.map((patient, index) => (
+            {filteredPatients.map((patient, index) => (
               <Tr key={index} onClick={() => handleRowClick(patient)} style={{ cursor: 'pointer' }}>
                 <Td>{patient.CompanyName}</Td>
                 <Td>{patient.MemberID}</Td>
@@ -85,7 +107,6 @@ const PatientTable = () => {
         </Table>
       </Box>
 
-      {/* Modal for displaying patient details */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
