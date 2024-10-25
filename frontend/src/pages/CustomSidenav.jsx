@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
-import { Sidenav, Nav } from 'rsuite';
-import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
-import GroupIcon from '@rsuite/icons/legacy/Group';
-import MagicIcon from '@rsuite/icons/legacy/Magic';
-import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
-import 'rsuite/dist/rsuite.min.css';
+import React, { useState } from "react";
+import { Sidenav, Nav } from "rsuite";
+import DashboardIcon from "@rsuite/icons/legacy/Dashboard";
+import GroupIcon from "@rsuite/icons/legacy/Group";
+import MagicIcon from "@rsuite/icons/legacy/Magic";
+import GearCircleIcon from "@rsuite/icons/legacy/GearCircle";
+import "rsuite/dist/rsuite.min.css";
+import { NavLink, Link } from "react-router-dom";
+import Dashboard from "./dashboard/Dashboard";
+import PatientTable from "./patientTable/PatientTable";
+import Todos from "./Todos";
 
 export default function CustomSidenav() {
-  const [activeKey, setActiveKey] = useState('1');
-  const [openKeys, setOpenKeys] = useState(['3', '4']);
+  const [activeKey, setActiveKey] = useState("1");
+  const [openKeys, setOpenKeys] = useState([]);
   const [expanded, setExpanded] = useState(true);
 
   const handleToggle = (expanded) => {
     setExpanded(expanded);
   };
+
+  const NavLink = React.forwardRef(({ href, children, ...rest }, ref) => (
+    <Link ref={ref} to={href} {...rest}>
+      {children}
+    </Link>
+  ));
 
   return (
     <div style={{ width: expanded ? 240 : 56 }}>
@@ -27,14 +37,30 @@ export default function CustomSidenav() {
 
         <Sidenav.Body>
           <Nav activeKey={activeKey} onSelect={setActiveKey}>
-            <Nav.Item eventKey="1" icon={<DashboardIcon />}>
+            <Nav.Item
+              eventKey="1"
+              as={NavLink}
+              children={<Dashboard />}
+              href="/"
+              icon={<DashboardIcon />}
+            >
               Dashboard
             </Nav.Item>
-            <Nav.Item eventKey="2" icon={<MagicIcon />}>
+            <Nav.Item
+              eventKey="2"
+              as={NavLink}
+              children={<PatientTable />}
+              href="/patients"
+            >
               Schedule
             </Nav.Item>
-            <Nav.Item eventKey="2" icon={<GroupIcon />}>
-              Patients
+            <Nav.Item
+              eventKey="3"
+              as={NavLink}
+              children={<Todos />}
+              href="/todos"
+            >
+              Todos
             </Nav.Item>
             {/* <Nav.Menu eventKey="3" title="Advanced" icon={<MagicIcon />}>
               <Nav.Item eventKey="3-1">Geo</Nav.Item>
