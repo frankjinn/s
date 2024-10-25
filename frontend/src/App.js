@@ -9,7 +9,6 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <ChakraProvider>
-      {/* <Todos></Todos> */}
       <Routes>
         <Route path="/todos" element={<Todos />} />
         <Route path="/dashboard" element={<Dashboard />} />
