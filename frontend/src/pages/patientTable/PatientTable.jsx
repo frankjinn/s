@@ -32,8 +32,9 @@ const PatientTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/exampleUser.json");
-        const data = response.data;
+        const response = await axios.get("http://localhost:8000/loadUsers");
+        console.log(response);
+        const data = response.data.userList;
         setPatients(data);
         setFilteredPatients(data);
       } catch (error) {
@@ -72,13 +73,13 @@ const PatientTable = () => {
         maxW="80%"
         mb={4}
       />
-      <Box 
-        maxW="80%" 
-        overflowY="auto" 
-        maxHeight="500px" 
-        border="1px solid #e2e8f0" 
-        borderRadius="md" 
-        boxShadow="md" 
+      <Box
+        maxW="80%"
+        overflowY="auto"
+        maxHeight="500px"
+        border="1px solid #e2e8f0"
+        borderRadius="md"
+        boxShadow="md"
         p={4}
       >
         <Table variant="striped" colorScheme="teal">
@@ -94,11 +95,15 @@ const PatientTable = () => {
           </Thead>
           <Tbody>
             {filteredPatients.map((patient, index) => (
-              <Tr key={index} onClick={() => handleRowClick(patient)} style={{ cursor: 'pointer' }}>
+              <Tr
+                key={index}
+                onClick={() => handleRowClick(patient)}
+                style={{ cursor: "pointer" }}
+              >
                 <Td>{patient.CompanyName}</Td>
                 <Td>{patient.MemberID}</Td>
                 <Td>{patient.GroupNum}</Td>
-                <Td>{patient.name}</Td>
+                <Td>{patient.Name}</Td>
                 <Td>{patient.PolicyNum}</Td>
                 <Td>{patient.UserID}</Td>
               </Tr>
@@ -115,12 +120,24 @@ const PatientTable = () => {
           <ModalBody>
             {selectedPatient && (
               <>
-                <p><strong>Company Name:</strong> {selectedPatient.CompanyName}</p>
-                <p><strong>Member ID:</strong> {selectedPatient.MemberID}</p>
-                <p><strong>Group Number:</strong> {selectedPatient.GroupNum}</p>
-                <p><strong>Name:</strong> {selectedPatient.name}</p>
-                <p><strong>Policy Number:</strong> {selectedPatient.PolicyNum}</p>
-                <p><strong>User ID:</strong> {selectedPatient.UserID}</p>
+                <p>
+                  <strong>Company Name:</strong> {selectedPatient.CompanyName}
+                </p>
+                <p>
+                  <strong>Member ID:</strong> {selectedPatient.MemberID}
+                </p>
+                <p>
+                  <strong>Group Number:</strong> {selectedPatient.GroupNum}
+                </p>
+                <p>
+                  <strong>Name:</strong> {selectedPatient.name}
+                </p>
+                <p>
+                  <strong>Policy Number:</strong> {selectedPatient.PolicyNum}
+                </p>
+                <p>
+                  <strong>User ID:</strong> {selectedPatient.UserID}
+                </p>
               </>
             )}
           </ModalBody>
