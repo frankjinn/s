@@ -12,12 +12,12 @@ export default function Dashboard() {
   const newClients = ["Alice Smith", "Bob Johnson", "Catherine Lee"]; // Example list of new clients
 
   return (
-    <div className="dashboard" style={{ display: "flex", minHeight: "100vh" }}>
+    <div class="bg-SilverLakeBlue-500">
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <CustomHeader userName={userName} logoSrc={logoSrc} />
 
-        <div style={styles.content}>
-          <div style={styles.infoSection}>
+        <div>
+          <div>
             <NewClients clients={newClients} />
             <StatusSection
               verifiedCount={verifiedCount}
@@ -29,16 +29,3 @@ export default function Dashboard() {
     </div>
   );
 }
-
-// Basic inline styles for simplicity
-const styles = {
-  content: {
-    padding: "20px",
-    backgroundColor: "#f4f6f8",
-    flex: 1,
-  },
-  infoSection: {
-    display: "flex",
-    gap: "20px",
-  },
-};
