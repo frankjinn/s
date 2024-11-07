@@ -1,27 +1,24 @@
 // App.js
 import "./App.css";
-import { Router, Switch, Routes, Route, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/dashboard/Dashboard";
 import Todos from "./pages/Todos";
 import PatientTable from "./pages/patientTable/PatientTable";
-import NavBar from "./pages/NavBar";
+import Navbar from "./components/Navbar";
+import MyCalendar from "./pages/calendar/MyCalendar";
 
 function App() {
   return (
     <>
-      <Router>
-        <NavBar style={{ position: "relative", zIndex: "1" }} />
-        <Switch>
-          <Route
-            path="/"
-            element={<Dashboard />}
-            style={{ position: "relative", zIndex: "5" }}
-          />
-          <Route path="/todos" element={<Todos />} />
-          <Route path="/patients" element={<PatientTable />} />
-        </Switch>
-      </Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" exact element={<Dashboard />} />
+        <Route path="/patients" element={<PatientTable />} />
+        <Route path="/schedule" element={<MyCalendar />} />
+        <Route path="/todos" element={<Todos />} />
+      </Routes>
     </>
   );
 }

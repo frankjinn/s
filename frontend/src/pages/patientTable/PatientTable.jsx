@@ -72,6 +72,7 @@ const PatientTable = () => {
         onChange={handleSearch}
         maxW="80%"
         mb={4}
+        zIndex={-1}
       />
       <Box
         maxW="80%"
