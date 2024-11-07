@@ -23,8 +23,6 @@ export default function MyCalendar(props) {
         style={{
           height: "100vh",
           width: "100vw",
-          position: "absolute",
-          zIndex: -1,
         }}
       />
     </div>

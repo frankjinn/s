@@ -12,7 +12,7 @@ function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <>
-      <div class="z-10">
+      <div class="relative z-10">
         <IconContext.Provider value={{ color: "#fff" }}>
           {/* class="bg-PrussianBlue-700 h-30 flex-auto justify-start items-center" */}
           <div class="bg-PrussianBlue-700 h-[5rem] flex justify-start items-center">
