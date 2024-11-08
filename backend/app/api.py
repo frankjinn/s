@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import json
 import os
+from coverage import CoverageChecker  # Assuming this is in the same directory
 
 
 app = FastAPI()
@@ -22,6 +23,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# Load policy and user databases at startup
+with open("./examplePolicy.json", "r") as file:
+    policy_database = json.load(file)
+
+with open("./exampleUser.json", "r") as file:
+    user_database = json.load(file)
+
+
+class CoverageRequest(BaseModel):
+    member_id: str
+    procedure: str
+    procedure_cost: float
 
 @app.get("/", tags=["root"])
 async def read_root() -> dict:
@@ -46,3 +60,21 @@ async def get_users() -> dict:
         file = json.load(f)
         print(file)
     return {"userList": file}
+
+
+@app.post("/calculateCoverage", tags=["coverage"])
+async def calculate_coverage(request: CoverageRequest):
+    # Find user info based on member_id
+    user_info = next((user for user in user_database if user["MemberID"] == request.member_id), None)
+    if not user_info:
+        raise HTTPException(status_code=404, detail=f"User with MemberID {request.member_id} not found.")
+
+    # Check if the policy matches
+    policy_num = user_info["PolicyNum"]
+    if policy_database.get("PolicyNumber") != policy_num:
+        raise HTTPException(status_code=404, detail=f"Policy with PolicyNum {policy_num} not found for user {user_info['Name']}.")
+
+    # Instantiate CoverageChecker and calculate coverage
+    coverage_checker = CoverageChecker(policy_database, user_info)
+    result = coverage_checker.check_coverage(request.procedure, request.procedure_cost)
+    return {"coverage": result}

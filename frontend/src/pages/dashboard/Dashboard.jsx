@@ -11,7 +11,7 @@ export default function Dashboard() {
   const needAttentionCount = 5; // Example count for items needing attention
   const newClients = ["Alice Smith", "Bob Johnson", "Catherine Lee"]; // Example list of new clients
 
-  return (
+  return ( 
     <div className="dashboard" style={{ display: "flex", minHeight: "100vh" }}>
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <CustomHeader userName={userName} logoSrc={logoSrc} />

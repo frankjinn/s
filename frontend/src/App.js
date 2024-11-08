@@ -1,7 +1,7 @@
 // App.js
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-
+import Covered from "./pages/Covered"; // Import the new page
 import Dashboard from "./pages/dashboard/Dashboard";
 import Todos from "./pages/Todos";
 import PatientTable from "./pages/patientTable/PatientTable";
@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/todos" element={<Todos />} />
         <Route path="/patients" element={<PatientTable />} />
+        <Route path="/covered" element={<Covered />} />
       </Routes>
     </div>
   );

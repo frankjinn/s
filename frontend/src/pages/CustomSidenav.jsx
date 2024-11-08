@@ -8,6 +8,7 @@ import "rsuite/dist/rsuite.min.css";
 import { NavLink, Link } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import PatientTable from "./patientTable/PatientTable";
+import Covered from "./Covered";
 import Todos from "./Todos";
 
 export default function CustomSidenav() {
@@ -57,10 +58,10 @@ export default function CustomSidenav() {
             <Nav.Item
               eventKey="3"
               as={NavLink}
-              children={<Todos />}
-              href="/todos"
+              children={<Covered />}
+              href="/covered"
             >
-              Todos
+              Coverage
             </Nav.Item>
             {/* <Nav.Menu eventKey="3" title="Advanced" icon={<MagicIcon />}>
               <Nav.Item eventKey="3-1">Geo</Nav.Item>
