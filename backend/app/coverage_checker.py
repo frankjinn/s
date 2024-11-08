@@ -81,26 +81,26 @@ class CoverageChecker:
                 "To Pay": cost
             }
 
-# Load the policy and user databases
-with open("../examplePolicy.json", "r") as file:
-    policy_database = json.load(file)
+# # Load the policy and user databases
+# with open("../examplePolicy.json", "r") as file:
+#     policy_database = json.load(file)
 
-with open("../exampleUser.json", "r") as file:
-    user_database = json.load(file)
+# with open("../exampleUser.json", "r") as file:
+#     user_database = json.load(file)
 
 
-member_id = "8492731"   
-procedure = 'Surgery'
-procedure_cost = 10000
+# member_id = "8492731"   
+# procedure = 'Surgery'
+# procedure_cost = 10000
 
-user_info = next((user for user in user_database if user["MemberID"] == member_id), None)
-if not user_info:
-    raise ValueError(f"User with MemberID {member_id} not found.")
+# user_info = next((user for user in user_database if user["MemberID"] == member_id), None)
+# if not user_info:
+#     raise ValueError(f"User with MemberID {member_id} not found.")
 
-policy_num = user_info["PolicyNum"]
-if policy_database.get("PolicyNumber") != policy_num:
-    raise ValueError(f"Policy with PolicyNum {policy_num} not found for user {user_info['Name']}.")
+# policy_num = user_info["PolicyNum"]
+# if policy_database.get("PolicyNumber") != policy_num:
+#     raise ValueError(f"Policy with PolicyNum {policy_num} not found for user {user_info['Name']}.")
 
-coverage_checker = CoverageChecker(policy_database, user_info)
-result = coverage_checker.check_coverage(procedure, procedure_cost)
-print(result)
+# coverage_checker = CoverageChecker(policy_database, user_info)
+# result = coverage_checker.check_coverage(procedure, procedure_cost)
+# print(result)

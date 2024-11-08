@@ -2,8 +2,7 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Covered from "./pages/Covered"; // Import the new page
-
+import Covered from "./pages/Covered";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Todos from "./pages/Todos";
 import PatientTable from "./pages/patientTable/PatientTable";

@@ -1,9 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel  # Add this line
 import json
 import os
-from coverage import CoverageChecker  # Assuming this is in the same directory
-
+from app.coverage_checker import CoverageChecker
 
 app = FastAPI()
 todos = [{"id": "1", "item": "Read a book."}, {"id": "2", "item": "Cycle around town."}]
@@ -25,10 +25,10 @@ app.add_middleware(
 
 
 # Load policy and user databases at startup
-with open("./examplePolicy.json", "r") as file:
+with open("/Users/speterson/glass/backend/examplePolicy.json", "r") as file:
     policy_database = json.load(file)
 
-with open("./exampleUser.json", "r") as file:
+with open("/Users/speterson/glass/backend/exampleUser.json", "r") as file:
     user_database = json.load(file)
 
 
