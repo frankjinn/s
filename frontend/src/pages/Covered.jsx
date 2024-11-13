@@ -1,4 +1,3 @@
-// Covered.jsx
 import React, { useEffect, useState } from "react";
 import {
   Box,
@@ -31,6 +30,12 @@ const Covered = () => {
   const [procedure, setProcedure] = useState("");
   const [cost, setCost] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isResultOpen,
+    onOpen: onResultOpen,
+    onClose: onResultClose,
+  } = useDisclosure();
+  const [coverageResult, setCoverageResult] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +73,8 @@ const Covered = () => {
           procedure: procedure,
           procedure_cost: parseFloat(cost),
         });
-        console.log("Coverage Result:", response.data.coverage);
+        setCoverageResult(response.data.coverage);
+        onResultOpen();
       } catch (error) {
         console.error("Error calculating coverage:", error);
       }
@@ -133,6 +139,7 @@ const Covered = () => {
         <p>No patients found with that name.</p>
       )}
 
+      {/* Procedure Input Modal */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
@@ -167,6 +174,44 @@ const Covered = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
+
+      {/* Coverage Result Modal */}
+      <Modal isOpen={isResultOpen} onClose={onResultClose} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Coverage Result</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            {coverageResult ? (
+              <Box>
+                <p><strong>User:</strong> {coverageResult.User}</p>
+                <p><strong>Original Cost:</strong> {coverageResult["Original Cost"]}</p>
+                <p><strong>Out-of-Network Coverage:</strong></p>
+                <Box pl={4}>
+                  {Object.entries(coverageResult.OutNetworkCoverage).map(([key, value]) => (
+                    <p key={key}>
+                      <strong>{key}:</strong> {value}
+                    </p>
+                  ))}
+                </Box>
+                <p><strong>In-Network Coverage:</strong></p>
+                <Box pl={4}>
+                  {Object.entries(coverageResult.InNetworkCoverage).map(([key, value]) => (
+                    <p key={key}>
+                      <strong>{key}:</strong> {value}
+                    </p>
+                  ))}
+                </Box>
+              </Box>
+            ) : (
+              <p>No coverage result available.</p>
+            )}
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onResultClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>    
     </VStack>
   );
 };
