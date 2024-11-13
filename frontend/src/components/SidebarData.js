@@ -3,7 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 
-export const SidebarData = [
+export const SideBarData = [
   {
     title: "Dashboard",
     path: "/",
@@ -25,6 +25,12 @@ export const SidebarData = [
   {
     title: "Schedule",
     path: "/schedule",
+    icon: <FaIcons.FaCartPlus />,
+    cName: "nav-text",
+  },
+  {
+    title: "Coverage",
+    path: "/covered",
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text",
   },

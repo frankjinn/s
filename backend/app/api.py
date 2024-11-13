@@ -25,10 +25,10 @@ app.add_middleware(
 
 
 # Load policy and user databases at startup
-with open("/Users/speterson/glass/backend/examplePolicy.json", "r") as file:
+with open("./examplePolicy.json", "r") as file:
     policy_database = json.load(file)
 
-with open("/Users/speterson/glass/backend/exampleUser.json", "r") as file:
+with open("./exampleUser.json", "r") as file:
     user_database = json.load(file)
 
 
