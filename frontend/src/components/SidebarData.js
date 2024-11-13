@@ -28,4 +28,10 @@ export const SidebarData = [
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text",
   },
+  {
+    title: "Coverage",
+    path: "/covered",
+    icon: <FaIcons.FaCartPlus />,
+    cName: "nav-text",
+  },
 ];

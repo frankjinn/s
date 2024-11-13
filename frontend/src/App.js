@@ -19,7 +19,6 @@ function App() {
         <Route path="/covered" element={<Covered />} />
         <Route path="/schedule" element={<MyCalendar />} />
         <Route path="/todos" element={<Todos />} />
-
       </Routes>
     </>
   );
